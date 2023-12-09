@@ -76,9 +76,7 @@
     ./config/dev.nix
     ./config/espanso.nix
     ./config/gui.nix
-    # ./config/hyprland.nix
     ./config/k8s.nix
-    ./config/sway.nix
     ./config/syncthing.nix
     ./config/virt.nix
   ];
