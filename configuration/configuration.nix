@@ -86,6 +86,10 @@
     ];
   };
 
+  # XFCE
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager.xterm.enable = false;
+
   # Configure video drivers for X server
   services.xserver.videoDrivers = [ "amdgpu" ];
   # Configure dedicated GPU as the first Device section for X server
