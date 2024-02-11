@@ -10,7 +10,7 @@ let
         name = "today";
         type = "date";
         params = {
-          format = "%d-%m-%Y";
+          format = "%Y-%m-%d";
         };
       }];
     }
@@ -19,20 +19,28 @@ let
       replace = "¿";
     }
     {
-      trigger = ":si";
+      trigger = ":r!";
+      replace = "¡";
+    }
+    {
+      trigger = ";si";
       replace = "í";
     }
     {
-      trigger = ":sa";
+      trigger = ";sa";
       replace = "á";
     }
     {
-      trigger = ":sn";
+      trigger = ";sn";
       replace = "ñ";
     }
     {
-      trigger = ":se";
+      trigger = ";se";
       replace = "é";
+    }
+    {
+      trigger = ";su";
+      replace = "ú";
     }
   ];
 in
