@@ -39,6 +39,7 @@ in
     pkgs.networkmanagerapplet
     pkgs.pavucontrol
     pkgs.rhythmbox
+    pkgs.xdotool
   ];
   
   # wayland.windowManager.hyprland.enable = true;
