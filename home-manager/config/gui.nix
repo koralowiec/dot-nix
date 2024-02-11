@@ -26,7 +26,7 @@ in
     pkgs.logseq
     pkgs.libreoffice
     pkgs.nextcloud-client
-    pkgs.obsidian
+    unstable.pkgs.obsidian
     pkgs.openscad
     pkgs.signal-desktop
     pkgs.steam
