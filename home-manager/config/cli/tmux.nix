@@ -24,7 +24,7 @@ in
 
       set -g @urlview-key 'x'
       # https://github.com/alacritty/alacritty/issues/3354#issuecomment-1585708714
-      # set-option -ga terminal-overrides ",alacritty:Tc"
+      set-option -ga terminal-overrides ",alacritty:Tc"
       # set -g default-terminal "alacritty"
     '';
     historyLimit = 10000;
