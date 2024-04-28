@@ -152,6 +152,8 @@
       "wheel"
       # For adb
       "adbusers"
+      # For rootful docker
+      "docker"
       # For running ddcutil without sudo
       "i2c"
       # Scanner
@@ -181,11 +183,8 @@
     enable = true;
   };
 
-  # Configure rootless Docker
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  # Configure rootful Docker
+  virtualisation.docker.enable = true;
 
   # Configure libvirt
   virtualisation.libvirtd = {
