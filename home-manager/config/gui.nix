@@ -14,6 +14,7 @@ in
     pkgs.blender
     pkgs.brave
     pkgs.brasero
+    pkgs.copyq
     pkgs.cura
     pkgs.dbeaver
     pkgs.freecad
@@ -24,6 +25,7 @@ in
     pkgs.kolourpaint
     pkgs.lame # mp3 encoding
     pkgs.logseq
+    pkgs.localsend
     pkgs.libreoffice
     pkgs.nextcloud-client
     unstable.pkgs.obsidian

@@ -41,4 +41,8 @@
   programs.helix = {
     enable = true;
   };
+
+  programs.zoxide = {
+    enable = true;
+  };
 }
