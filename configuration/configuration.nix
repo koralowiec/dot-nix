@@ -242,4 +242,10 @@
 
   # Driver for Xbox Adapter
   hardware.xone.enable = true;
+
+  # Enable experimental features
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
 }
