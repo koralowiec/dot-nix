@@ -39,20 +39,47 @@ in
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-      github.copilot
-      golang.go
-      hashicorp.terraform
-      ms-python.python
-      redhat.vscode-yaml
-      vscodevim.vim
+    enableUpdateCheck = false;
+    # extensions = with unstable.pkgs.vscode-extensions; [
+    #   catppuccin.catppuccin-vsc
+    #   github.copilot
+    #   github.copilot-chat
+    #   golang.go
+    #   hashicorp.terraform
+    #   ms-python.black-formatter
+    #   ms-python.python
+    #   redhat.vscode-yaml
+    #   vscodevim.vim
+    # ];
+    keybindings = [
+      {
+        key = "ctrl+shift+'";
+        command =  "workbench.action.chat.openInSidebar";
+      }
+      {
+        key = "ctrl+shift+/";
+        command = "workbench.action.togglePanel";
+      }
+      {
+        key = "ctrl+j";
+        command = "-workbench.action.togglePanel";
+      }
+      {
+        key = "ctrl+shift+alt+'";
+        command = "workbench.action.focusPanel";
+      }
     ];
-    # package = pkgs.vscodium;
+    mutableExtensionsDir = true;
     userSettings = {
+      "editor.formatOnSave" = true;
+      "editor.lineNumbers" = "relative";
+      "editor.minimap.enabled" = false;
+      "github.copilot.inlineSuggest.enable" = true;
+      "python.languageServer" = "Pylance";
+      "vim.useSystemClipboard" = true;
+      "window.menuBarVisibility" = "toggle";
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "telemetry.telemetryLevel" = "off";
-      "github.copilot.inlineSuggest.enable" = true;
     };
   };
 
