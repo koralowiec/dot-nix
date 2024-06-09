@@ -2,7 +2,7 @@
 let
   catppuccinAlacrittySource = builtins.fetchGit {
     url = "https://github.com/catppuccin/alacritty.git";
-    rev = "3c808cbb4f9c87be43ba5241bc57373c793d2f17";
+    rev = "94800165c13998b600a9da9d29c330de9f28618e";
   };
   catppuccinAlacrittyDestination = ".local/share/alacritty";
 in
@@ -16,7 +16,7 @@ in
     enable = true;
     settings = {
       import = [
-        "~/${catppuccinAlacrittyDestination}/catppuccin-macchiato.yml"
+        "~/${catppuccinAlacrittyDestination}/catppuccin-macchiato.toml"
       ];
       font = {
         normal = {
