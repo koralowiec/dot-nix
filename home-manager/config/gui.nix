@@ -16,7 +16,7 @@ in
     pkgs.brasero
     pkgs.copyq
     pkgs.cura
-    pkgs.dbeaver
+    pkgs.dbeaver-bin
     pkgs.freecad
     pkgs.gImageReader
     pkgs.gimp
