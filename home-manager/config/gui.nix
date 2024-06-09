@@ -65,10 +65,11 @@ in
         command = "-workbench.action.togglePanel";
       }
       {
-        key = "ctrl+shift+alt+'";
+        key = "alt+'";
         command = "workbench.action.focusPanel";
       }
     ];
+    package = unstable.pkgs.vscode;
     mutableExtensionsDir = true;
     userSettings = {
       "editor.formatOnSave" = true;
@@ -79,6 +80,7 @@ in
       "vim.useSystemClipboard" = true;
       "window.menuBarVisibility" = "toggle";
       "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.iconTheme" = "catppuccin-macchiato";
       "telemetry.telemetryLevel" = "off";
     };
   };
