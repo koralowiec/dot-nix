@@ -242,4 +242,9 @@
     "flakes"
     "nix-command"
   ];
+
+  # Ollama
+  services.ollama = {
+    enable = true;
+  };
 }
