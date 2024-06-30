@@ -20,7 +20,6 @@
     pkgs.neovim
     pkgs.pulseaudio # for pactl
     pkgs.restic
-    pkgs.thefuck
     pkgs.tig
     pkgs.tldr
     pkgs.xclip
@@ -31,6 +30,10 @@
   xdg.configFile.nvim = {
     source = ./nvim;
     recursive = true;
+  };
+
+  programs.thefuck = {
+    enable = true;
   };
 
   programs.fzf = {
@@ -45,4 +48,5 @@
   programs.zoxide = {
     enable = true;
   };
+
 }

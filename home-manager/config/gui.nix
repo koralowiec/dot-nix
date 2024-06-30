@@ -14,6 +14,7 @@ in
     pkgs.blender
     pkgs.brave
     pkgs.brasero
+    pkgs.bruno
     pkgs.copyq
     pkgs.cura
     pkgs.dbeaver-bin
@@ -30,7 +31,10 @@ in
     pkgs.nextcloud-client
     unstable.pkgs.obsidian
     pkgs.openscad
+    pkgs.orca-slicer
+    unstable.pkgs.planify
     pkgs.signal-desktop
+    pkgs.sqlitebrowser
     pkgs.steam
     pkgs.thunderbird
     pkgs.via
