@@ -20,6 +20,7 @@
     pkgs.neovim
     pkgs.pulseaudio # for pactl
     pkgs.restic
+    pkgs.superfile
     pkgs.tig
     pkgs.tldr
     pkgs.xclip
