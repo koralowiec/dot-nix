@@ -79,7 +79,7 @@ in
       "editor.formatOnSave" = true;
       "editor.lineNumbers" = "relative";
       "editor.minimap.enabled" = false;
-      "github.copilot.inlineSuggest.enable" = true;
+      "github.copilot.editor.enableAutoCompletions" = true;
       "python.languageServer" = "Pylance";
       "vim.useSystemClipboard" = true;
       "window.menuBarVisibility" = "toggle";
