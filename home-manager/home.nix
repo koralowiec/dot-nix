@@ -78,6 +78,7 @@
     ./config/gui.nix
     ./config/k8s.nix
     ./config/syncthing.nix
+    ./config/sway.nix
     ./config/virt.nix
     <catppuccin/modules/home-manager>
   ];
