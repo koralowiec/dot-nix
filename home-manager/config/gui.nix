@@ -2,12 +2,13 @@
 
 { config, lib, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 { 
   home.packages = [
     pkgs.anki
-    unstable.pkgs.anytype
+    # unstable.pkgs.anytype
+    pkgs.anytype
     pkgs.asunder
     pkgs.android-studio
     pkgs.blanket
@@ -29,10 +30,12 @@ in
     pkgs.localsend
     pkgs.libreoffice
     pkgs.nextcloud-client
-    unstable.pkgs.obsidian
+    pkgs.obsidian
+    # unstable.pkgs.obsidian
     pkgs.openscad
     pkgs.orca-slicer
-    unstable.pkgs.planify
+    # unstable.pkgs.planify
+    pkgs.planify
     pkgs.signal-desktop
     pkgs.sqlitebrowser
     pkgs.steam
@@ -73,7 +76,8 @@ in
         command = "workbench.action.focusPanel";
       }
     ];
-    package = unstable.pkgs.vscode;
+    # package = unstable.pkgs.vscode;
+    package = pkgs.vscode;
     mutableExtensionsDir = true;
     userSettings = {
       "editor.formatOnSave" = true;

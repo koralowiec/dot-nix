@@ -90,6 +90,17 @@
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
 
+  # Sway
+  security.polkit.enable = true;
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
+  #     };
+  #   };
+  # };
+
   # Configure video drivers for X server
   services.xserver.videoDrivers = [ "amdgpu" ];
   # Configure dedicated GPU as the first Device section for X server

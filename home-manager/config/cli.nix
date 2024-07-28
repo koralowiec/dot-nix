@@ -49,5 +49,4 @@
   programs.zoxide = {
     enable = true;
   };
-
 }

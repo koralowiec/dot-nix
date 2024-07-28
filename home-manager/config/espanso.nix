@@ -15,11 +15,11 @@ let
       }];
     }
     {
-      trigger = ":r?";
+      trigger = ";r?";
       replace = "¿";
     }
     {
-      trigger = ":r!";
+      trigger = ";r!";
       replace = "¡";
     }
     {
