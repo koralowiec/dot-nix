@@ -232,16 +232,23 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
   # Flatpak
+  # xdg.portal.enable = true;
   services.flatpak.enable = true;
 
   # Driver for Xbox Adapter
   hardware.xone.enable = true;
 
   # Enable experimental features
-  nix.settings.experimental-features = [
-    "flakes"
-    "nix-command"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
+    trusted-users = [
+      "root"
+      "arek"
+    ];
+  };
 
   # Ollama
   services.ollama = {
