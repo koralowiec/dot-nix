@@ -79,11 +79,12 @@
     ./config/k8s.nix
     ./config/syncthing.nix
     ./config/virt.nix
-    # <catppuccin/modules/home-manager>
   ];
 
-  # catppuccin.flavor = "macchiato";
-  # catppuccin.enable = true;
+  catppuccin = {
+    enable = true;
+    flavor = "macchiato";
+  };
 
   # Allow software with unfree licenses
   nixpkgs.config.allowUnfree = true;

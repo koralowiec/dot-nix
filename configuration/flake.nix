@@ -16,16 +16,22 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+
           catppuccin.nixosModules.catppuccin
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.arek = import ./home-manager/home.nix;
+            home-manager.users.arek = {
+              imports = [
+                ./home-manager/home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
           }
         ];
       };
     };
-    catppuccin.enable = true;
   };
 }
