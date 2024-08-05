@@ -57,7 +57,6 @@
           ./configuration/nix-conf.nix
           ./configuration/nixpkgs-config.nix
           ./configuration/printer.nix
-          ./configuration/specific
           ./configuration/user-arek.nix
 
           ./hardware-configuration/toaster.nix
