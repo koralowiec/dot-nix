@@ -71,7 +71,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.arek = {
               imports = [
-                ./home-manager/home.nix
+                ./home-manager/specific/toaster.nix
+
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
