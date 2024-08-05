@@ -89,6 +89,10 @@ in
       "window.menuBarVisibility" = "toggle";
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "workbench.iconTheme" = "catppuccin-macchiato";
+      # Disable VS Code's keybind for Ctrl+P in terminal
+      "terminal.integrated.commandsToSkipShell" = [
+        "-workbench.action.quickOpen"
+      ];
       "telemetry.telemetryLevel" = "off";
     };
   };
