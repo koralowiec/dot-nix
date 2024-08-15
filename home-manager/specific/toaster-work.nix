@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "arek";
-  home.homeDirectory = "/home/arek";
+  home.username = "arik";
+  home.homeDirectory = "/home/arik";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -21,7 +21,6 @@
     brave
     firefox
     neovim
-    obsidian
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -44,9 +43,7 @@
   # programs.home-manager.enable = true;
 
   # Import config from files
-  imports = [
-    ../dev
-  ];
+  imports = [];
 
   # Enable catppucin globally for Home Manager
   catppuccin = {

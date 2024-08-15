@@ -1,11 +1,10 @@
 { ... }:
 {
   # My user
-  users.users.arek = {
+  users.users.arik = {
     isNormalUser = true;
-    description = "arek";
+    description = "arik";
     extraGroups = [
-      "docker"
       "networkmanager"
       "wheel"
     ];

@@ -13,9 +13,13 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+    kolide-launcher = {
+      url = "github:/kolide/nix-agent/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, catppuccin, home-manager, nixpkgs, ... }@inputs: {
+  outputs = { self, catppuccin, home-manager, kolide-launcher, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       # PC
       microwave = nixpkgs.lib.nixosSystem {
@@ -49,15 +53,19 @@
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
           ./configuration/doc-man.nix
+          ./configuration/docker.nix
           ./configuration/font.nix
           ./configuration/gnome.nix
+          # (import ./configuration/kolide.nix { inherit inputs; })
           ./configuration/laptop.nix
           ./configuration/locals.nix
           ./configuration/networking.nix
           ./configuration/nix-conf.nix
           ./configuration/nixpkgs-config.nix
           ./configuration/printer.nix
+          ./configuration/sshd.nix
           ./configuration/user-arek.nix
+          ./configuration/user-arik.nix
 
           ./hardware-configuration/toaster.nix
 
@@ -75,9 +83,18 @@
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
+
+            home-manager.users.arik = {
+              imports = [
+                ./home-manager/specific/toaster-work.nix
+
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
           }
 
           catppuccin.nixosModules.catppuccin
+	  kolide-launcher.nixosModules.kolide-launcher
         ];
       };
     };
