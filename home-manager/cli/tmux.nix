@@ -25,7 +25,7 @@
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
-          set -g @catppuccin_flavour 'frappe'
+          set -g @catppuccin_flavour 'macchiato'
         '';
       }
       {

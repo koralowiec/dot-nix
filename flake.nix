@@ -17,9 +17,14 @@
       url = "github:/kolide/nix-agent/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, catppuccin, home-manager, kolide-launcher, nixpkgs, ... }@inputs: {
+  outputs = { self, catppuccin, home-manager, kolide-launcher, nixos-cosmic, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       # PC
       microwave = nixpkgs.lib.nixosSystem {
@@ -52,10 +57,11 @@
 
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
+	  ./configuration/cosmic.nix
           ./configuration/doc-man.nix
           ./configuration/docker.nix
           ./configuration/font.nix
-          ./configuration/gnome.nix
+          # ./configuration/gnome.nix
           # (import ./configuration/kolide.nix { inherit inputs; })
           ./configuration/laptop.nix
           ./configuration/locals.nix
@@ -64,13 +70,24 @@
           ./configuration/nixpkgs-config.nix
           ./configuration/printer.nix
           ./configuration/sshd.nix
+          ./configuration/sway.nix
           ./configuration/user-arek.nix
           ./configuration/user-arik.nix
+	  ./configuration/virtualisation-libvirt.nix
 
           ./hardware-configuration/toaster.nix
 
           inputs.disko.nixosModules.disko
           ./disko/toaster.nix
+
+	  {
+            # https://github.com/lilyinstarlight/nixos-cosmic?tab=readme-ov-file#flakes
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {

@@ -43,6 +43,7 @@
     ../cli
     ../dev
     ../gui
+    ../sway
   ];
 
   # Enable catppucin globally for Home Manager

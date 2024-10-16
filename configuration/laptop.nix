@@ -6,5 +6,10 @@
   # Enable `light` CLI tool for brightness control
   users.users.arek.extraGroups = [ "video" ];
   programs.light.enable = true;
+
+  services.logind = {
+    powerKey = "suspend";
+    lidSwitch = "suspend";
+  };
 }
 

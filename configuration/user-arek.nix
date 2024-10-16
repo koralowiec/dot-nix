@@ -6,6 +6,7 @@
     description = "arek";
     extraGroups = [
       "docker"
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];
