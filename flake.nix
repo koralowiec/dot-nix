@@ -35,6 +35,7 @@
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
           ./configuration/ddcutil.nix
+          ./configuration/doc-man.nix
           ./configuration/docker.nix
           ./configuration/flatpak.nix
           ./configuration/font.nix
@@ -42,9 +43,11 @@
           ./configuration/i3.nix
           ./configuration/locals.nix
           ./configuration/networking.nix
+          ./configuration/nix-conf.nix
           ./configuration/nixpkgs-config.nix
           ./configuration/printer.nix
           ./configuration/steam.nix
+          ./configuration/user-arek.nix
           ./configuration/virtualisation-libvirt.nix
           ./configuration/xbox-adapter.nix
           

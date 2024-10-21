@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # My user
   users.users.arek = {
