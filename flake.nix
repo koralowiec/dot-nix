@@ -71,6 +71,7 @@
           ./configuration/printer.nix
           ./configuration/sshd.nix
           ./configuration/sway.nix
+          ./configuration/tailscale.nix
           ./configuration/user-arek.nix
           ./configuration/user-arik.nix
 	  ./configuration/virtualisation-libvirt.nix
