@@ -10,6 +10,9 @@
       "networkmanager"
       "wheel"
     ];
+    packages = with pkgs; [
+      firefox
+    ];
   };
 }
 

@@ -30,7 +30,25 @@
       microwave = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./configuration/specific/microwave.nix
+
+          ./configuration/audio.nix
+          ./configuration/bluetooth.nix
+          ./configuration/ddcutil.nix
+          ./configuration/docker.nix
+          ./configuration/flatpak.nix
+          ./configuration/font.nix
+          ./configuration/gnome.nix
+          ./configuration/i3.nix
+          ./configuration/locals.nix
+          ./configuration/networking.nix
+          ./configuration/nixpkgs-config.nix
+          ./configuration/printer.nix
+          ./configuration/steam.nix
+          ./configuration/virtualisation-libvirt.nix
+          ./configuration/xbox-adapter.nix
+          
+          ./hardware-configuration/microwave.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -38,7 +56,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.arek = {
               imports = [
-                ./home-manager/home.nix
+                ./home-manager/specific/microwave.nix
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
