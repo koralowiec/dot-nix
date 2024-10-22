@@ -6,5 +6,10 @@
   services.printing.drivers = [ pkgs.splix ];
   # Enable SANE library for scanner support
   hardware.sane.enable = true;
+
+  users.extraGroups = {
+    scanner.members = [ "arek" ];
+    lp.members = [ "arek" ];
+  };
 }
 

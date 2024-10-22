@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # My user
   users.users.arek = {
@@ -9,6 +9,9 @@
       "libvirtd"
       "networkmanager"
       "wheel"
+    ];
+    packages = with pkgs; [
+      firefox
     ];
   };
 }

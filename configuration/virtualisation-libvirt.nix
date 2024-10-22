@@ -19,5 +19,10 @@
   environment.systemPackages = with pkgs; [
     virt-manager
   ];
+
+  users.extraGroups = {
+    libvirtd.members = [ "arek" ];
+    qemu-libvirtd.members = [ "arek" ];
+  };
 }
 
