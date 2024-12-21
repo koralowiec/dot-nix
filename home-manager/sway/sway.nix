@@ -164,7 +164,7 @@ in
         # Apps
         "${modifier}+Shift+Return" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+x" = "exec ${pkgs.cinnamon.nemo}/bin/nemo";
+        "${modifier}+x" = "exec ${pkgs.nemo}/bin/nemo";
         "${modifier}+Shift+S" = "exec ${pkgs.flameshot}/bin/flameshot gui";
         "${alt}+Return" = "exec ${pkgs.planify}/bin/io.github.alainm23.planify.quick-add";
 

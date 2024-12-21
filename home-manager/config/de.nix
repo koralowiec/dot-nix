@@ -26,15 +26,9 @@ in
   home.packages = [ 
     customAlbert
     pkgs.arandr
-    pkgs.cinnamon.nemo
-    pkgs.cinnamon.xviewer
     pkgs.evince
     pkgs.feh
     pkgs.flameshot
-    pkgs.gnome.gnome-clocks
-    pkgs.gnome.gnome-sound-recorder
-    pkgs.gnome.simple-scan
-    pkgs.gnome.pomodoro
     pkgs.networkmanagerapplet
     pkgs.pavucontrol
     pkgs.rhythmbox

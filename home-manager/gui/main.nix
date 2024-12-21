@@ -8,18 +8,17 @@
     brasero
     brave
     copyq
-    cinnamon.nemo
-    cinnamon.xviewer
+    nemo
+    xviewer
     evince
     firefox
     flameshot
     freecad
     gImageReader
     gimp
-    gnome.gnome-clocks
-    gnome.gnome-sound-recorder
-    gnome.simple-scan
-    gnome.pomodoro
+    gnome-clocks
+    gnome-sound-recorder
+    gnome-pomodoro
     kolourpaint
     lame # mp3 encoding
     libreoffice
@@ -31,6 +30,7 @@
     planify
     rhythmbox
     signal-desktop
+    simple-scan
     steam
     xdotool
   ]; 
