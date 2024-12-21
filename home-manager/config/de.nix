@@ -20,7 +20,6 @@ let
 in
 {
   imports = [
-    ./alacritty/alacritty.nix
     ./xfce-terminal/xfce-terminal.nix
   ];
 
