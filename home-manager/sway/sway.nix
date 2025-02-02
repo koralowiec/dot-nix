@@ -7,6 +7,7 @@ let
   down = "j";
   up = "k";
   right = "l";
+  menuBin = "${pkgs.rofi-wayland}/bin/rofi";
 in
 {
   wayland.windowManager.sway = {
@@ -15,7 +16,12 @@ in
     config = {
       modifier = modifier;
       terminal = defaultTerminal; 
-      startup = [];
+      menu = menuBin;
+
+      startup = [
+        { command = "${pkgs.obsidian}/bin/obsidian"; always = true; }
+      ];
+
       gaps = {
         inner = 4;
         outer = 4;
@@ -158,8 +164,8 @@ in
         "${alt}+Ctrl+Right" = "workspace prev";
 
 	# App launcher
-        "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
-
+        # "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
+        "${modifier}+Space" = "exec ${menuBin} -show drun";
 
         # Apps
         "${modifier}+Shift+Return" = "exec ${pkgs.firefox}/bin/firefox";
@@ -171,6 +177,12 @@ in
         # Media
         "${modifier}+Shift+z" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ 1";
         "${modifier}+Shift+x" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ 0";
+      };
+
+      assigns = {
+        "11:NOTES" = [{
+          class = "obsidian";
+        }];
       };
 
       window = {
@@ -252,6 +264,10 @@ in
       bindgesture swipe:3:right workspace prev
       bindgesture swipe:3:left workspace next
       bindgesture hold:3 workspace number $ws11
+
+      # Workaround to remove the top title bar
+      default_border pixel 2
+      default_floating_border pixel 2
     '';
   };
 
