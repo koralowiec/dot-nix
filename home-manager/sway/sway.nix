@@ -8,6 +8,7 @@ let
   up = "k";
   right = "l";
   menuBin = "${pkgs.rofi-wayland}/bin/rofi";
+  browserBin = "${pkgs.firefox}/bin/firefox";
 in
 {
   wayland.windowManager.sway = {
@@ -20,6 +21,7 @@ in
 
       startup = [
         { command = "${pkgs.obsidian}/bin/obsidian"; always = true; }
+        { command = browserBin; }
       ];
 
       gaps = {
@@ -91,6 +93,9 @@ in
         "${modifier}+Shift+q" = "kill";
         # Lock 
         "${alt}+Ctrl+semicolon" = "exec swaylock";
+        "${modifier}+Escape" = "exec swaylock";
+        # Sleep
+        "Ctrl+${alt}+s" = "exec systemctl suspend";
 
         # Moving around
         ## Move your focus with hjlk
@@ -277,6 +282,12 @@ in
 
   services.swayidle = {
     enable = true;
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+    ];
   };
 
   programs.rofi = {
