@@ -348,12 +348,23 @@ in
         # modules-center = ["sway/window"];
         modules-center = [];
         # modules-right = ["pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "battery" "clock" "tray"];
-        modules-right = [ "battery" "clock"];
+        modules-right = [ "tray" "bluetooth" "network" "pulseaudio#microphone" "pulseaudio" "backlight" "battery" "clock" ];
 	spacing = 10;
+
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source =  " {volume}%";
+          format-source-muted =  "  --%";
+        };
 
 	"sway/workspaces" = {
 	  format = "{name}";
 	};
+
+        "bluetooth" = {
+          format = "  {status}";
+          on-click-middle = "blueman-manager && swaymsg \"[app_id=^.blueman-manager-wrapped$]\" focus";
+        };
         # "wlr/workspaces" = {
         #      disable-scroll = true;
         #      sort-by-name = true;
@@ -362,10 +373,14 @@ in
         #          default = "";
         #      };
         #  };
-        # "tray" = {
-        #     icon-size = 21;
-        #     spacing = 10
-        # };
+        "pulseaudio" = {
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          format = "  {volume}%";
+        };
+        "tray" = {
+            icon-size = 16;
+            # spacing = 10;
+        };
         # "custom/music" = {
         #     format = "  {}";
         #     escape = true;
@@ -377,23 +392,22 @@ in
         # };
         "clock" = {
             timezone = "Europe/Warsaw";
-	    format = "{:%d-%m-%Y %H:%M}";
+	    format = "{:%d-%m %H:%M}";
         };
-        # "backlight" = {
-        #     device = "intel_backlight";
-        #     format = "{icon}";
-        #     format-icons = ["", "", "", "", "", "", "", "", ""]
-        # };
+        "backlight" = {
+            device = "intel_backlight";
+            format = "  {percent}%";
+        };
         "battery" = {
             states = {
                 warning = 30;
                 critical = 15;
             };
-            format = "{capacity}%";
-            format-charging = "+ {capacity}%";
+            format = "{icon} {capacity}%";
+            format-charging = "󰂄 {capacity}%";
             # format-plugged = "";
             # format-alt = "{icon}";
-            # format-icons = ["" "" "" "" "" "" "" "" "" "" "" ""];
+            format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         # "pulseaudio" = {
         #     // "scroll-step" = 1, // %, can be a float
