@@ -104,6 +104,20 @@ in
         # Sleep
         "Ctrl+${alt}+s" = "exec systemctl suspend";
 
+        # Modes / layouts
+        "${modifier}+s" = "layout stacking";
+        "${modifier}+w" = "layout tabbed";
+        ## Tiling/toggle split
+        "${modifier}+e" = "layout toggle split";
+        ## Floating mode
+        "${modifier}+Shift+Space" = "floating toggle";
+        ## Scratchpad
+        "${modifier}+Shift+minus" = "move scratchpad";
+        "${modifier}+minus" = "scratchpad show";
+
+        # Keyboard layout
+        "${modifier}+BackSpace" = "input \"1:1:AT_Translated_Set_2_keyboard\" xkb_switch_layout next";
+
         # Moving around
         ## Move your focus with hjlk
         "${modifier}+${left}" = "focus left";
