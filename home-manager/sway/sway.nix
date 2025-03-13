@@ -203,6 +203,15 @@ in
         # Media
         "${modifier}+Shift+z" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ 1";
         "${modifier}+Shift+x" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ 0";
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%-";
+        "XF86AudioPlay" = "exec playerctl play-pause";
+
+        # Action buttons
+        # "" = "exec ";
+        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
+        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
+        "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1";
       };
 
       assigns = {
