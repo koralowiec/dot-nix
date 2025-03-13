@@ -3,6 +3,7 @@
   # Any CLI/TUI tool that doesn't fit other place
   home.packages = with pkgs; [
     distrobox
+    jq
     pulseaudio # for pactl
     superfile
     tldr
