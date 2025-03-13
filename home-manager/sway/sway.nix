@@ -191,7 +191,7 @@ in
 
 	# App launcher
         # "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
-        "${modifier}+Space" = "exec ${menuBin} -show drun";
+        "${modifier}+Space" = "exec ${menuBin} -show drun -drun-display-format \" {name}\" -show-icons";
 
         # Apps
         "${modifier}+Shift+Return" = "exec ${pkgs.firefox}/bin/firefox";
