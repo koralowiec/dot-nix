@@ -293,16 +293,29 @@ in
       set $ws9 "9"
       set $ws10 "10"
       set $ws11 "11:NOTES"
+      set $ws12 "12"
+      set $ws13 "13"
+      set $ws14 "14"
     '';
 
     extraConfig = ''
       bindgesture swipe:3:right workspace prev
       bindgesture swipe:3:left workspace next
+      bindgesture swipe:3:down exec ${menuBin} -show drun -show-icons
+      bindgesture swipe:3:up exec ${menuBin} -show window -show-icons -window-format "  {t}"
+      # bindgesture swipe:3:down exec swaymsg workspace $(($(swaymsg -t get_workspaces | tr , '\n' | grep '"num":' | grep -v '11\|12' | cut -d : -f 2 | sort -rn | head -1) + 1))
       bindgesture hold:3 workspace number $ws11
+
+      # Backlight adjustment
+      bindgesture swipe:4:up exec ${pkgs.light}/bin/light -A 10
+      bindgesture swipe:4:down exec ${pkgs.light}/bin/light -U 10
 
       # Workaround to remove the top title bar
       default_border pixel 2
       default_floating_border pixel 2
+
+      # Tab mode by default
+      for_window [workspace="14"] layout tabbed
     '';
   };
 
