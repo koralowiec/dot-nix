@@ -11,6 +11,7 @@
     cmake
     gcc
     gnumake
+    insomnia
     python3
   ]; 
 }
