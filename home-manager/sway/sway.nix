@@ -21,6 +21,8 @@ in
 
       startup = [
         { command = "${pkgs.obsidian}/bin/obsidian"; always = true; }
+        { command = "${pkgs.pavucontrol}/bin/pavucontrol"; always = true; }
+        { command = "${pkgs.blueman}/bin/blueman-manager"; always = true; }
         { command = browserBin; }
       ];
 
@@ -218,6 +220,12 @@ in
         "11:NOTES" = [{
           class = "obsidian";
         }];
+        "14" = [{
+          app_id = ".blueman-manager-wrapped";
+        }
+        {
+          app_id = "org.pulseaudio.pavucontrol";
+        }];
       };
 
       window = {
@@ -345,16 +353,33 @@ in
         layer = "top";
         position = "bottom";
         modules-left = ["sway/workspaces" "sway/mode"];
-        # modules-center = ["sway/window"];
-        modules-center = [];
-        # modules-right = ["pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "battery" "clock" "tray"];
-        modules-right = [ "tray" "bluetooth" "network" "pulseaudio#microphone" "pulseaudio" "backlight" "battery" "clock" ];
+        modules-center = [ "clock#time" ];
+        modules-right = [ "bluetooth" "network" "pulseaudio#microphone" "custom/audio-primary" "backlight" "battery" "clock#date" "tray" ];
 	spacing = 10;
+
+        "network" = {
+          format = "{icon}";
+          format-disconnected = "󱛅 ";
+          format-wifi = "󰖩 ";
+          format-ethernet = "󰈀 ";
+          tooltip = true;
+          tooltip-format-ethernet = "{ipaddr}";
+          tooltip-format-wifi = "{essid} {signalStrength}%\n{ipaddr}";
+        };
+
+        "custom/audio-primary" = {
+          exec = "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'";
+          format = "  {}";
+          interval = 1;
+          on-click = "pavucontrol";
+          on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
+          on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        };
 
         "pulseaudio#microphone" = {
           format = "{format_source}";
           format-source =  " {volume}%";
-          format-source-muted =  "  --%";
+          format-source-muted =  " ";
         };
 
 	"sway/workspaces" = {
@@ -362,8 +387,10 @@ in
 	};
 
         "bluetooth" = {
-          format = "  {status}";
+          format = " ";
           on-click-middle = "blueman-manager && swaymsg \"[app_id=^.blueman-manager-wrapped$]\" focus";
+          tooltip = true;
+          tooltip-format = "{status}\n{device_alias}";
         };
         # "wlr/workspaces" = {
         #      disable-scroll = true;
@@ -373,13 +400,13 @@ in
         #          default = "";
         #      };
         #  };
-        "pulseaudio" = {
-          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-          format = "  {volume}%";
-        };
+        # "pulseaudio" = {
+        #   on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+        #   format = "  {volume}%";
+        # };
         "tray" = {
             icon-size = 16;
-            # spacing = 10;
+            spacing = 8;
         };
         # "custom/music" = {
         #     format = "  {}";
@@ -390,9 +417,15 @@ in
         #     on-click = "playerctl play-pause";
         #     max-length = 50
         # };
-        "clock" = {
+        "clock#time" = {
             timezone = "Europe/Warsaw";
-	    format = "{:%d-%m %H:%M}";
+	    format = "󰥔  {:%H:%M}";
+            tooltip-format = "<big>{:%d %B %Y}</big>";
+        };
+        "clock#date" = {
+            timezone = "Europe/Warsaw";
+	    format = "  {:%d-%m}";
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "backlight" = {
             device = "intel_backlight";
