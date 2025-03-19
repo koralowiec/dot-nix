@@ -47,6 +47,7 @@
           ./configuration/nixpkgs-config.nix
           ./configuration/printer.nix
           ./configuration/steam.nix
+          ./configuration/sway.nix
           ./configuration/user-arek.nix
           ./configuration/virtualisation-libvirt.nix
           ./configuration/xbox-adapter.nix
