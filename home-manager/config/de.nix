@@ -3,20 +3,6 @@
 
 { config, lib, pkgs, ... }: 
 let 
-  customAlbert = pkgs.albert.overrideAttrs
-    (old: {
-      postInstall = ''
-        ${old.postInstall or ""}
-        cd $out/share/albert/widgetsboxmodel/themes
-        # source ./StandardThemeTemplate.sh
-        #makeStyle            bg       fg text  input bg border   button   scroll   sel_fg text  sel_bg   sel_bor  output
-        # makeStyle "$TEMPLATE" "303446" "81c8be" "626880" "626880" "626880" "f4b8e4" "8caaee"     "85c1dc" "f4b8e4" "./themes/Catppuccin.qss"
-        cp Nord.qss Catppuccin.qss
-        sed -i 's/2E3440/303446/g' Catppuccin.qss
-        sed -i 's/4C566A/626880/g' Catppuccin.qss
-        sed -i 's/4C566A/626880/g' Catppuccin.qss
-      '';
-    });
 in
 {
   imports = [
@@ -24,7 +10,6 @@ in
   ];
 
   home.packages = [ 
-    customAlbert
     pkgs.arandr
     pkgs.evince
     pkgs.feh
