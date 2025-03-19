@@ -65,47 +65,47 @@ in
         else {};
 
       workspaceOutputAssign = [
-      {
-        workspace = "1";
-        output = "primary";
-      }
-      {
-        workspace = "2";
-        output = "primary";
-      }
-      {
-        workspace = "3";
-        output = "primary";
-      }
-      {
-        workspace = "4";
-        output = "primary";
-      }
-      {
-        workspace = "5";
-        output = "primary";
-      }
-      {
-        workspace = "6";
-        output = "primary";
-      }
-      {
-        workspace = "7";
-        output = "primary";
-      }
-      {
-        workspace = "8";
-        output = "primary";
-      }
-      {
-        workspace = "9";
-        output = "primary";
-      }
-      {
-        workspace = "10:NOTES";
-        output = "primary";
-      }
-    ];
+        {
+          workspace = "1";
+          output = "primary";
+        }
+        {
+          workspace = "2";
+          output = "primary";
+        }
+        {
+          workspace = "3";
+          output = "primary";
+        }
+        {
+          workspace = "4";
+          output = "primary";
+        }
+        {
+          workspace = "5";
+          output = "primary";
+        }
+        {
+          workspace = "6";
+          output = "primary";
+        }
+        {
+          workspace = "7";
+          output = "primary";
+        }
+        {
+          workspace = "8";
+          output = "primary";
+        }
+        {
+          workspace = "9";
+          output = "primary";
+        }
+        {
+          workspace = "10:NOTES";
+          output = "primary";
+        }
+      ];
 
       keybindings = {
         # Exit sway (logs you out of your Wayland session)
@@ -197,7 +197,8 @@ in
         "${modifier}+Shift+slash" = "move container to workspace number 13";
         "${modifier}+Shift+semicolon" = "move container to workspace number 14";
         "${modifier}+Shift+apostrophe" = "move container to workspace number 15";
-	## Switch to prev/next workspace
+	      
+        ## Switch to prev/next workspace
         "${alt}+Ctrl+z" = "workspace prev";
         "${alt}+Ctrl+x" = "workspace next";
         "${alt}+Ctrl+h" = "workspace prev";
@@ -205,7 +206,7 @@ in
         "${alt}+Ctrl+Left" = "workspace prev";
         "${alt}+Ctrl+Right" = "workspace prev";
 
-	# App launcher
+	      # App launcher
         # "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
         "${modifier}+Space" = "exec ${menuBin} -show drun -drun-display-format \" {name}\" -show-icons";
 
@@ -261,41 +262,41 @@ in
 
       colors = {
       	background = "$base";
-	focused = {
+        focused = {
           childBorder = "$lavender";
-	  background = "$base";
-	  text = "$text";
-	  indicator = "$rosewater";
-	  border = "$lavender";
-	};
-	focusedInactive = {
+          background = "$base";
+          text = "$text";
+          indicator = "$rosewater";
+          border = "$lavender";
+        };
+        focusedInactive = {
           childBorder = "$overlay0";
-	  background = "$base";
-	  text = "$text";
-	  indicator = "$rosewater";
-	  border = "$overlay0";
-	};
-	placeholder = {
+          background = "$base";
+          text = "$text";
+          indicator = "$rosewater";
+          border = "$overlay0";
+        };
+        placeholder = {
           childBorder = "$overlay0";
-	  background = "$base";
-	  text = "$text";
-	  indicator = "$base";
-	  border = "$base";
-	};
-	unfocused = {
+          background = "$base";
+          text = "$text";
+          indicator = "$base";
+          border = "$base";
+        };
+        unfocused = {
           childBorder = "$overlay0";
-	  background = "$base";
-	  text = "$text";
-	  indicator = "$overlay0";
-	  border = "$overlay0";
-	};
-	urgent = {
+          background = "$base";
+          text = "$text";
+          indicator = "$overlay0";
+          border = "$overlay0";
+        };
+        urgent = {
           childBorder = "$peach";
-	  background = "$base";
-	  text = "$peach";
-	  indicator = "$overlay0";
-	  border = "$peach";
-	};
+          background = "$base";
+          text = "$peach";
+          indicator = "$overlay0";
+          border = "$peach";
+        };
       };
 
       bars = [{
@@ -420,75 +421,37 @@ in
           tooltip = true;
           tooltip-format = "{status}\n{device_alias}";
         };
-        # "wlr/workspaces" = {
-        #      disable-scroll = true;
-        #      sort-by-name = true;
-        #      format = " {icon} ";
-        #      format-icons = {
-        #          default = "";
-        #      };
-        #  };
-        # "pulseaudio" = {
-        #   on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-        #   format = "  {volume}%";
-        # };
+        
         "tray" = {
             icon-size = 16;
             spacing = 8;
         };
-        # "custom/music" = {
-        #     format = "  {}";
-        #     escape = true;
-        #     interval = 5;
-        #     tooltip = false;
-        #     exec = "playerctl metadata --format='{{ title }}'";
-        #     on-click = "playerctl play-pause";
-        #     max-length = 50
-        # };
+        
         "clock#time" = {
             timezone = "Europe/Warsaw";
-	    format = "󰥔  {:%H:%M}";
+	          format = "󰥔  {:%H:%M}";
             tooltip-format = "<big>{:%d %B %Y}</big>";
         };
         "clock#date" = {
             timezone = "Europe/Warsaw";
-	    format = "  {:%d-%m}";
+	          format = "  {:%d-%m}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
+
         "backlight" = {
             device = "intel_backlight";
             format = "  {percent}%";
         };
+
         "battery" = {
-            states = {
-                warning = 30;
-                critical = 15;
-            };
-            format = "{icon} {capacity}%";
-            format-charging = "󰂄 {capacity}%";
-            # format-plugged = "";
-            # format-alt = "{icon}";
-            format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          states = {
+              warning = 30;
+              critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
-        # "pulseaudio" = {
-        #     // "scroll-step" = 1, // %, can be a float
-        #     format = "{icon} {volume}%";
-        #     format-muted = "";
-        #     format-icons = {
-        #         default = ["", "", " "]
-        #     };
-        #     on-click = "pavucontrol"
-        # };
-        # "custom/lock" = {
-        #     tooltip = false;
-        #     on-click = "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown";
-        #     format = "";
-        # };
-        # "custom/power" = {
-        #     tooltip = false;
-        #     on-click = "wlogout &";
-        #     format = "襤"
-        # };
       };
     };
     style = ''
@@ -510,12 +473,12 @@ in
 
       #workspaces button.focused {
         background-color: @mauve;
-	color: @base;
+	      color: @base;
       }
 
       #workspaces button:hover {
         background-color: @lavender;
-	color: @base;
+	      color: @base;
       }
     '';
   };
