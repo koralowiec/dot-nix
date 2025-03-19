@@ -367,9 +367,19 @@ in
         layer = "top";
         position = "bottom";
         modules-left = ["sway/workspaces" "sway/mode"];
-        modules-center = [ "clock#time" ];
-        modules-right = [ "bluetooth" "network" "pulseaudio#microphone" "custom/audio-primary" "backlight" "battery" "clock#date" "tray" ];
-	spacing = 10;
+        modules-center = [ ];
+        modules-right = [
+          "bluetooth"
+          "network"
+          "pulseaudio#microphone"
+          "custom/audio-primary"
+          "backlight"
+          "battery"
+          "clock#date"
+          "clock#time"
+          "tray"
+        ];
+	      spacing = 10;
 
         "network" = {
           format = "{icon}";
