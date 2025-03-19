@@ -37,10 +37,10 @@ in
         followMouse = "no";
       };
       input = {
-	"type:touchpad" = {
-	  tap = "enabled";
+        "type:touchpad" = {
+          tap = "enabled";
           natural_scroll = "enabled";
-	};
+        };
         # Identifier from `swaymsg -t get_inputs`
         "1:1:AT_Translated_Set_2_keyboard" = {
           # Set keyboard layout to Polish
