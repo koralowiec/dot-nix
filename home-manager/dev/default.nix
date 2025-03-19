@@ -14,4 +14,9 @@
     insomnia
     python3
   ]; 
+  
+  # Enable SSH agent for private keys
+  services.ssh-agent = {
+    enable = true;
+  };
 }
