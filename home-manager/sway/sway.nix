@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, lib, osConfig, ... }: 
 let 
   defaultTerminal = "alacritty";
   modifier = "Mod4";
@@ -49,6 +49,20 @@ in
           # xkb_options = "compose:caps";
         };
       };
+
+      # Output based on hostname
+      output = if osConfig.networking.hostName == "microwave"
+        then {
+           "HDMI-A-1" = {
+             mode = "1920x1080@60Hz";
+             pos = "0,0";
+           };
+           "DP-1" = {
+             mode = "2560x1080@60Hz";
+             pos = "1920,0";
+           };
+         }
+        else {};
 
       workspaceOutputAssign = [
       {
