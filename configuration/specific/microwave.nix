@@ -31,6 +31,19 @@
     neovim
   ];
 
+  # Fix for audio crackling
+  # https://discourse.nixos.org/t/strange-audio-issues-after-updating/57098/7
+  services.pipewire = {
+    extraConfig.pipewire = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 2048;
+        "default.clock.min-quantum" = 2048;
+        "default.clock.max-quantum" = 8192;
+      };
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
