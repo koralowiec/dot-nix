@@ -396,9 +396,13 @@ in
           format-source-muted =  " ";
         };
 
-	"sway/workspaces" = {
-	  format = "{name}";
-	};
+        "sway/workspaces" = {
+          format = "{name}";
+          enable-bar-scroll = true;
+          disable-scroll = false;
+          warp-on-scroll = false;
+          disable-scroll-wraparound = true;
+        };
 
         "bluetooth" = {
           format = " ";
