@@ -42,7 +42,7 @@
   imports = [
     # ../config/cli.nix
     # ../config/default-apps.nix
-    ../config/de.nix
+    # ../config/de.nix
     # ../config/dev.nix
     # ../config/espanso.nix
     # ../config/gui.nix
