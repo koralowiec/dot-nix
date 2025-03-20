@@ -1,4 +1,4 @@
-{ pkgs, lib, osConfig, ... }: 
+{ pkgs, lib, ... }: 
 let 
   defaultTerminal = "alacritty";
   modifier = "Mod4";
@@ -11,6 +11,10 @@ let
   browserBin = "${pkgs.firefox}/bin/firefox";
 in
 {
+  imports = [
+    ./sway.outputs.nix
+  ];
+
   wayland.windowManager.sway = {
     swaynag.enable = true;
     enable = true;
@@ -49,20 +53,6 @@ in
           # xkb_options = "compose:caps";
         };
       };
-
-      # Output based on hostname
-      output = if osConfig.networking.hostName == "microwave"
-        then {
-           "HDMI-A-1" = {
-             mode = "1920x1080@60Hz";
-             pos = "0,0";
-           };
-           "DP-1" = {
-             mode = "2560x1080@60Hz";
-             pos = "1920,0";
-           };
-         }
-        else {};
 
       workspaceOutputAssign = [
         {
@@ -118,7 +108,7 @@ in
         "${alt}+Ctrl+semicolon" = "exec swaylock";
         "${modifier}+Escape" = "exec swaylock";
         # Sleep
-        "Ctrl+${alt}+s" = "exec systemctl suspend";
+        "Shift+${alt}+s" = "exec systemctl suspend";
 
         # Modes / layouts
         "${modifier}+s" = "layout stacking";
