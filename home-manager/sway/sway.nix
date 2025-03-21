@@ -142,15 +142,15 @@ in
         "${modifier}+Right" = "focus right";
 
         ## Move the focused window with the same, but add Shift
-        "${modifier}+Shift+${left}" = "focus left";
-        "${modifier}+Shift+${down}" = "focus down";
-        "${modifier}+Shift+${up}" = "focus up";
-        "${modifier}+Shift+${right}" = "focus right";
+        "${modifier}+Shift+${left}" = "move left";
+        "${modifier}+Shift+${down}" = "move down";
+        "${modifier}+Shift+${up}" = "move up";
+        "${modifier}+Shift+${right}" = "move right";
         ### With arrow keys
-        "${modifier}+Shift+Left" = "focus left";
-        "${modifier}+Shift+Down" = "focus down";
-        "${modifier}+Shift+Up" = "focus up";
-        "${modifier}+Shift+Right" = "focus right";
+        "${modifier}+Shift+Left" = "move left";
+        "${modifier}+Shift+Down" = "move down";
+        "${modifier}+Shift+Up" = "move up";
+        "${modifier}+Shift+Right" = "move right";
 
         ## Move workspace
         "${modifier}+n" = "move workspace to output left";
@@ -158,6 +158,9 @@ in
         ## Focus on monitor on left/right
         "${modifier}+Tab" = "focus output left";
         "${alt}+Tab" = "focus output right";
+
+        # Resizing
+        "${modifier}+r" = "mode resize";
 
         # Workspaces
         ## Switch to workspace
