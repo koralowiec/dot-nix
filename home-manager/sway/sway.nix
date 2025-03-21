@@ -27,6 +27,7 @@ in
         { command = "${pkgs.obsidian}/bin/obsidian"; always = true; }
         { command = "${pkgs.pavucontrol}/bin/pavucontrol"; always = true; }
         { command = "${pkgs.blueman}/bin/blueman-manager"; always = true; }
+        { command = "${pkgs.flameshot}/bin/flameshot"; always = true; }
         { command = browserBin; }
       ];
 
@@ -329,6 +330,10 @@ in
 
       # Tab mode by default
       for_window [workspace="14"] layout tabbed
+
+      # To ensure that Flameshot is correctly positioned on multiple outputs
+      # From https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md#basic-steps
+      for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
     '';
   };
 
