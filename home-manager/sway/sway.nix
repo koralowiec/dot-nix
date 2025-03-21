@@ -45,17 +45,15 @@ in
       focus = {
         followMouse = "no";
       };
+      # Identifiers can be checked with `swaymsg -t get_inputs`
       input = {
         "type:touchpad" = {
           tap = "enabled";
           natural_scroll = "enabled";
         };
-        # Identifier from `swaymsg -t get_inputs`
-        "1:1:AT_Translated_Set_2_keyboard" = {
-          # Set keyboard layout to Polish
+        # Set keyboard layout to Polish
+        "*" = {
           xkb_layout = "pl";
-          # Enable compose key for Caps Lock
-          # xkb_options = "compose:caps";
         };
       };
 
