@@ -1,7 +1,14 @@
 { pkgs, ... }:
+let
+  customFlameshot = pkgs.flameshot.override {
+    enableWlrSupport = true;
+    enableMonochromeIcon = true;
+  };
+in
 { 
   # Any GUI tool that doesn't fit other place
   home.packages = with pkgs; [
+    customFlameshot
     anki
     arandr
     asunder
@@ -12,7 +19,6 @@
     xviewer
     evince
     firefox
-    flameshot
     freecad
     gImageReader
     gimp
