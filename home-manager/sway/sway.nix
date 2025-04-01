@@ -123,6 +123,8 @@ in
         ## Scratchpad
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
+        ## Fullscreen
+        "${modifier}+f" = "fullscreen";
 
         # Keyboard layout
         "${modifier}+BackSpace" = "input \"1:1:AT_Translated_Set_2_keyboard\" xkb_switch_layout next";
