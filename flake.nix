@@ -61,7 +61,7 @@
             home-manager.users.arek = {
               imports = [
                 ./home-manager/specific/microwave.nix
-                catppuccin.homeManagerModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ];
             };
           }
@@ -120,7 +120,7 @@
               imports = [
                 ./home-manager/specific/toaster.nix
 
-                catppuccin.homeManagerModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ];
             };
 
@@ -128,7 +128,7 @@
               imports = [
                 ./home-manager/specific/toaster-work.nix
 
-                catppuccin.homeManagerModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ];
             };
           }
