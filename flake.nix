@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,11 +26,19 @@
     };
   };
 
-  outputs = { self, catppuccin, home-manager, kolide-launcher, nixos-cosmic, nixpkgs, ... }@inputs: {
+  outputs = { self, catppuccin, home-manager, kolide-launcher, nixos-cosmic, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  let 
+    system = "x86_64-linux";
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in
+  {
     nixosConfigurations = {
       # PC
       microwave = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./configuration/specific/microwave.nix
 
@@ -58,6 +68,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
             home-manager.users.arek = {
               imports = [
                 ./home-manager/specific/microwave.nix
@@ -116,6 +129,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
             home-manager.users.arek = {
               imports = [
                 ./home-manager/specific/toaster.nix
