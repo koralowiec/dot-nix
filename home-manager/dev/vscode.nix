@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 { 
   programs.vscode = {
     enable = true;
@@ -25,7 +25,7 @@
         command = "workbench.action.focusPanel";
       }
     ];
-    package = pkgs.vscode;
+    package = pkgs-unstable.vscode;
     mutableExtensionsDir = true;
     userSettings = {
       "editor.formatOnSave" = true;
