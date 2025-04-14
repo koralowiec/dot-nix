@@ -9,6 +9,7 @@ let
   right = "l";
   menuBin = "${pkgs.rofi-wayland}/bin/rofi";
   browserBin = "${pkgs.firefox}/bin/firefox";
+  hostname = builtins.getEnv "HOSTNAME";
 in
 {
   imports = [
@@ -29,7 +30,7 @@ in
         { command = "${pkgs.blueman}/bin/blueman-manager"; always = true; }
         { command = "${pkgs.flameshot}/bin/flameshot"; always = true; }
         { command = browserBin; }
-      ] ++ (if osConfig.networking.hostName == "microwave" then [
+      ] ++ (if hostname == "microwave" then [
         # Set primary monitor for WINE to prevent click not being registered in some games
         # https://wiki.archlinux.org/title/Sway#Mouse_not_working_in_WINE_applications
         { command = "${pkgs.xorg.xrandr}/bin/xrandr  --output DP-1 --primary"; always = true; }

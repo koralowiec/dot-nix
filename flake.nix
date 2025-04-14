@@ -138,5 +138,21 @@
         ];
       };
     };
+
+  homeConfigurations = {
+    "arek@toaster" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = { inherit inputs; };
+      modules = [
+        ./home-manager/specific/toaster.nix
+        catppuccin.homeModules.catppuccin
+        {
+          targets.genericLinux.enable = true;
+          nixpkgs.config.allowUnfree = true;
+        }
+      ];
+    };
+  };
+
   };
 }
