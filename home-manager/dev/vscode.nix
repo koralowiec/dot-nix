@@ -35,6 +35,7 @@
       "python.languageServer" = "Pylance";
       "vim.useSystemClipboard" = true;
       "window.menuBarVisibility" = "toggle";
+      "window.restoreWindows" = "none";
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "workbench.iconTheme" = "catppuccin-macchiato";
       # Disable VS Code's keybind for Ctrl+P in terminal
