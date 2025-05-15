@@ -55,6 +55,7 @@
           ./configuration/networking.nix
           ./configuration/nix-conf.nix
           ./configuration/nixpkgs-config.nix
+          ./configuration/orca-slicer.nix
           ./configuration/printer.nix
           ./configuration/steam.nix
           ./configuration/sway.nix
@@ -103,6 +104,7 @@
           ./configuration/networking.nix
           ./configuration/nix-conf.nix
           ./configuration/nixpkgs-config.nix
+          ./configuration/orca-slicer.nix
           ./configuration/printer.nix
           ./configuration/sshd.nix
           ./configuration/sway.nix
