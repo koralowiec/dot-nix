@@ -30,7 +30,7 @@ in
     swayidle
     swaylock
     waybar
-    wofi
+    fuzzel
   ];
 
 #   services.greetd = {
