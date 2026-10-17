@@ -6,13 +6,8 @@
       package = pkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
-      };
+      # OVMF (incl. secure boot variants) is now bundled with qemu and
+      # auto-detected by libvirtd; the `ovmf` submodule was removed.
     };
   };
 

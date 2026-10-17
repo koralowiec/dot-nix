@@ -2,11 +2,11 @@
   description = "NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -19,14 +19,9 @@
       url = "github:/kolide/nix-agent/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, catppuccin, home-manager, kolide-launcher, nixos-cosmic, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs = { self, catppuccin, home-manager, kolide-launcher, nixpkgs, nixpkgs-unstable, ... }@inputs:
   let 
     system = "x86_64-linux";
     pkgs-unstable = import nixpkgs-unstable {
@@ -44,6 +39,7 @@
 
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
+          ./configuration/cli-tools.nix
           ./configuration/ddcutil.nix
           ./configuration/doc-man.nix
           ./configuration/docker.nix
@@ -65,20 +61,24 @@
           
           ./hardware-configuration/microwave.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-            };
-            home-manager.users.arek = {
-              imports = [
-                ./home-manager/specific/microwave.nix
-                catppuccin.homeModules.catppuccin
-              ];
-            };
-          }
+          # Disabled for now — home-manager config has several breakages
+          # from the 24.11 -> 26.05 nixpkgs bump (renamed/removed packages
+          # in home-manager/gui and home-manager/sway) that need sorting
+          # out separately.
+          # home-manager.nixosModules.home-manager
+          # {
+          #   home-manager.useGlobalPkgs = true;
+          #   home-manager.useUserPackages = true;
+          #   home-manager.extraSpecialArgs = {
+          #     inherit pkgs-unstable;
+          #   };
+          #   home-manager.users.arek = {
+          #     imports = [
+          #       ./home-manager/specific/microwave.nix
+          #       catppuccin.homeModules.catppuccin
+          #     ];
+          #   };
+          # }
 
           catppuccin.nixosModules.catppuccin
         ];
@@ -93,6 +93,7 @@
 
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
+          ./configuration/cli-tools.nix
 	  ./configuration/cosmic.nix
           ./configuration/doc-man.nix
           ./configuration/docker.nix
@@ -115,41 +116,37 @@
 
           ./hardware-configuration/toaster.nix
 
-          inputs.disko.nixosModules.disko
-          ./disko/toaster.nix
+          # Not using disko this time around — disk was partitioned manually.
+          # inputs.disko.nixosModules.disko
+          # ./disko/toaster.nix
 
-	  {
-            # https://github.com/lilyinstarlight/nixos-cosmic?tab=readme-ov-file#flakes
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
+          # COSMIC is now built into nixpkgs (26.05+); no longer need the
+          # nixos-cosmic flake input or its cachix substituter.
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-            };
-            home-manager.users.arek = {
-              imports = [
-                ./home-manager/specific/toaster.nix
-
-                catppuccin.homeModules.catppuccin
-              ];
-            };
-
-            home-manager.users.arik = {
-              imports = [
-                ./home-manager/specific/toaster-work.nix
-
-                catppuccin.homeModules.catppuccin
-              ];
-            };
-          }
+          # Not using home-manager on toaster this time around.
+          # home-manager.nixosModules.home-manager
+          # {
+          #   home-manager.useGlobalPkgs = true;
+          #   home-manager.useUserPackages = true;
+          #   home-manager.extraSpecialArgs = {
+          #     inherit pkgs-unstable;
+          #   };
+          #   home-manager.users.arek = {
+          #     imports = [
+          #       ./home-manager/specific/toaster.nix
+          #
+          #       catppuccin.homeModules.catppuccin
+          #     ];
+          #   };
+          #
+          #   home-manager.users.arik = {
+          #     imports = [
+          #       ./home-manager/specific/toaster-work.nix
+          #
+          #       catppuccin.homeModules.catppuccin
+          #     ];
+          #   };
+          # }
 
           catppuccin.nixosModules.catppuccin
 	  kolide-launcher.nixosModules.kolide-launcher

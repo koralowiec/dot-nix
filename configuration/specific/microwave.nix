@@ -24,13 +24,6 @@
     BusID "PCI:3:0:0"
   '';
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-  ];
-
   # Fix for audio crackling
   # https://discourse.nixos.org/t/strange-audio-issues-after-updating/57098/7
   services.pipewire = {

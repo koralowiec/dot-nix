@@ -7,7 +7,7 @@ let
   down = "j";
   up = "k";
   right = "l";
-  menuBin = "${pkgs.rofi-wayland}/bin/rofi";
+  menuBin = "${pkgs.rofi}/bin/rofi";
   browserBin = "${pkgs.firefox}/bin/firefox";
 in
 {
@@ -205,7 +205,7 @@ in
         "${alt}+Ctrl+Right" = "workspace prev";
 
 	      # App launcher
-        # "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
+        # "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${modifier}+Space" = "exec ${menuBin} -show drun -drun-display-format \" {name}\" -show-icons";
 
         # Apps
@@ -224,8 +224,8 @@ in
 
         # Action buttons
         # "" = "exec ";
-        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
-        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
         "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1";
       };
 
@@ -328,8 +328,8 @@ in
       bindgesture hold:3 workspace number $ws11
 
       # Backlight adjustment
-      bindgesture swipe:4:up exec ${pkgs.light}/bin/light -A 10
-      bindgesture swipe:4:down exec ${pkgs.light}/bin/light -U 10
+      bindgesture swipe:4:up exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%
+      bindgesture swipe:4:down exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-
 
       # Workaround to remove the top title bar
       default_border pixel 2
@@ -360,7 +360,7 @@ in
 
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
   };
 
   programs.waybar = {
