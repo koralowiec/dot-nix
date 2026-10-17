@@ -20,6 +20,19 @@ in
     wrapperFeatures.gtk = true;
   };
 
+  # programs.sway already routes ScreenCast/Screenshot to the "wlr" backend
+  # when XDG_CURRENT_DESKTOP=sway; this just makes sure that backend is
+  # actually installed. xdg.portal.enable and the gtk fallback come from
+  # the GNOME module.
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+
+  environment.systemPackages = with pkgs; [
+    swayidle
+    swaylock
+    waybar
+    wofi
+  ];
+
 #   services.greetd = {
 #     enable = true;
 #     settings = {

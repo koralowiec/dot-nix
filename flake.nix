@@ -46,6 +46,7 @@
           ./configuration/flatpak.nix
           ./configuration/font.nix
           ./configuration/gnome.nix
+          ./configuration/gui-tools.nix
           ./configuration/i3.nix
           ./configuration/locals.nix
           ./configuration/networking.nix
@@ -94,11 +95,11 @@
           ./configuration/audio.nix
           ./configuration/bluetooth.nix
           ./configuration/cli-tools.nix
-	  ./configuration/cosmic.nix
           ./configuration/doc-man.nix
           ./configuration/docker.nix
           ./configuration/font.nix
-          # ./configuration/gnome.nix
+          ./configuration/gnome.nix
+          ./configuration/gui-tools.nix
           # (import ./configuration/kolide.nix { inherit inputs; })
           ./configuration/laptop.nix
           ./configuration/locals.nix
