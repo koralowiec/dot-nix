@@ -56,6 +56,7 @@
           ./configuration/printer.nix
           ./configuration/steam.nix
           ./configuration/sway.nix
+          ./configuration/ssh-agent.nix
           ./configuration/user-arek.nix
           ./configuration/virtualisation-libvirt.nix
           ./configuration/xbox-adapter.nix
@@ -110,6 +111,7 @@
           ./configuration/printer.nix
           ./configuration/sshd.nix
           ./configuration/sway.nix
+          ./configuration/ssh-agent.nix
           ./configuration/tailscale.nix
           ./configuration/user-arek.nix
           ./configuration/user-arik.nix
