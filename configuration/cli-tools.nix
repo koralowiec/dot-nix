@@ -6,6 +6,7 @@
     age
     chezmoi
     git
+    htop
     mise
     neovim
     nodejs # tracks current Node.js LTS
