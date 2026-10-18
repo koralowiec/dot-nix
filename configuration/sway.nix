@@ -31,6 +31,8 @@ in
     swaylock
     waybar
     fuzzel
+    swaynotificationcenter
+    libnotify # notify-send
   ];
 
 #   services.greetd = {

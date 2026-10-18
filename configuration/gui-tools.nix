@@ -6,5 +6,6 @@
     flameshot
     ghostty
     nemo
+    pavucontrol
   ];
 }
