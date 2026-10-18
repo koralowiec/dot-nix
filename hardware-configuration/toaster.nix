@@ -26,6 +26,9 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  # Encrypted swap partition (sda3)
+  boot.initrd.luks.devices."luks-2310502a-96c2-4d10-be90-cae9c17b0b92".device = "/dev/disk/by-uuid/2310502a-96c2-4d10-be90-cae9c17b0b92";
+
   swapDevices =
     [ { device = "/dev/mapper/luks-2310502a-96c2-4d10-be90-cae9c17b0b92"; }
     ];
