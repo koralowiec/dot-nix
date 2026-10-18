@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     age
     chezmoi
+    file # needed by yazi
     git
     htop
     mise
