@@ -33,6 +33,11 @@ in
     fuzzel
     swaynotificationcenter
     libnotify # notify-send
+    # Screenshots: capture, select an area, annotate; wl-copy for the clipboard
+    grim
+    slurp
+    satty
+    wl-clipboard
   ];
 
 #   services.greetd = {
