@@ -19,9 +19,14 @@
       url = "github:/kolide/nix-agent/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    handy = {
+      # Pinned to a release tag rather than main
+      url = "github:cjpais/Handy/v0.9.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, catppuccin, home-manager, kolide-launcher, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs = { self, catppuccin, handy, home-manager, kolide-launcher, nixpkgs, nixpkgs-unstable, ... }@inputs:
   let 
     system = "x86_64-linux";
     pkgs-unstable = import nixpkgs-unstable {
@@ -102,6 +107,7 @@
           ./configuration/font.nix
           ./configuration/gnome.nix
           ./configuration/gui-tools.nix
+          ./configuration/handy.nix
           # (import ./configuration/kolide.nix { inherit inputs; })
           ./configuration/laptop.nix
           ./configuration/locals.nix
@@ -154,6 +160,7 @@
 
           catppuccin.nixosModules.catppuccin
 	  kolide-launcher.nixosModules.kolide-launcher
+	  handy.nixosModules.default
         ];
       };
     };
