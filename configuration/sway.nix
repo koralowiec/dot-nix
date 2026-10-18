@@ -38,6 +38,9 @@ in
     slurp
     satty
     wl-clipboard
+    # Temporary display changes (arrange, scale, on/off) and mirroring
+    wdisplays
+    wl-mirror
   ];
 
 #   services.greetd = {
