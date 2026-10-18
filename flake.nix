@@ -98,6 +98,7 @@
           ./configuration/cli-tools.nix
           ./configuration/doc-man.nix
           ./configuration/docker.nix
+          ./configuration/flatpak.nix
           ./configuration/font.nix
           ./configuration/gnome.nix
           ./configuration/gui-tools.nix
