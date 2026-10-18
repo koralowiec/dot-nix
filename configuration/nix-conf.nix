@@ -11,5 +11,10 @@
       "arek"
     ];
   };
+
+  # Builds only get CPU and disk time nothing else wants, so the desktop stays
+  # responsive during rebuilds
+  nix.daemonCPUSchedPolicy = "idle";
+  nix.daemonIOSchedClass = "idle";
 }
 
