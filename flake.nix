@@ -119,7 +119,6 @@
           ./configuration/sshd.nix
           ./configuration/sway.nix
           ./configuration/ssh-agent.nix
-          ./configuration/tailscale.nix
           ./configuration/user-arek.nix
           ./configuration/user-arik.nix
 	  ./configuration/virtualisation-libvirt.nix
