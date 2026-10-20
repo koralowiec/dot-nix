@@ -19,6 +19,11 @@
     unzip # nvim: mason unpacks LSP servers
   ];
 
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs.bash.interactiveShellInit = ''
     eval "$(${pkgs.mise}/bin/mise activate bash)"
   '';
