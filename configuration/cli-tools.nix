@@ -6,7 +6,9 @@
     age
     chezmoi
     file # needed by yazi
+    gcc # nvim: treesitter parsers
     git
+    gnumake # nvim: telescope-fzf-native, LuaSnip jsregexp
     htop
     mise
     neovim
@@ -14,6 +16,7 @@
     playerctl
     python3
     tmux
+    unzip # nvim: mason unpacks LSP servers
   ];
 
   programs.bash.interactiveShellInit = ''
