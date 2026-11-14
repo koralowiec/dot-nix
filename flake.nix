@@ -52,6 +52,7 @@
           ./configuration/font.nix
           ./configuration/gnome.nix
           ./configuration/gui-tools.nix
+          ./configuration/handy.nix
           ./configuration/i3.nix
           ./configuration/locals.nix
           ./configuration/networking.nix
@@ -65,8 +66,11 @@
           ./configuration/user-arek.nix
           ./configuration/virtualisation-libvirt.nix
           ./configuration/xbox-adapter.nix
-          
+
           ./hardware-configuration/microwave.nix
+
+          inputs.disko.nixosModules.disko
+          ./disko/microwave.nix
 
           # Disabled for now — home-manager config has several breakages
           # from the 24.11 -> 26.05 nixpkgs bump (renamed/removed packages
@@ -88,6 +92,7 @@
           # }
 
           catppuccin.nixosModules.catppuccin
+          handy.nixosModules.default
         ];
       };
 
