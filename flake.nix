@@ -39,6 +39,7 @@
       # PC
       microwave = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit pkgs-unstable; };
         modules = [
           ./configuration/specific/microwave.nix
 
@@ -99,7 +100,8 @@
       # ThinkPad
       toaster = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ 
+        specialArgs = { inherit pkgs-unstable; };
+        modules = [
           ./configuration/boot-systemd.nix
           ./configuration/specific/toaster.nix 
 

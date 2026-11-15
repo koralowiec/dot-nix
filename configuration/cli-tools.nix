@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   # CLI tools that should always be available at the system level,
   # regardless of whether home-manager is wired up for a given host.
@@ -10,7 +10,7 @@
     git
     gnumake # nvim: telescope-fzf-native, LuaSnip jsregexp
     htop
-    mise
+    pkgs-unstable.mise # unstable: the dotfiles/bootstrap features are newer than 26.05's mise
     neovim
     nodejs # tracks current Node.js LTS
     playerctl
@@ -25,7 +25,7 @@
   };
 
   programs.bash.interactiveShellInit = ''
-    eval "$(${pkgs.mise}/bin/mise activate bash)"
+    eval "$(${pkgs-unstable.mise}/bin/mise activate bash)"
   '';
 
   programs.nix-ld.enable = true;
